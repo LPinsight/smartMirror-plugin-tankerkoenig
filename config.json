@@ -1,0 +1,44 @@
+[{
+  "name": "tankerkoenig_api_key",
+  "displayname": "tankerkoenig_api_key",
+  "inputType": "text",
+  "default": "",
+  "placeholder": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+},{
+  "name": "sort",
+  "displayname": "Sortierung",
+  "inputType": ["Preis", "Entfernung"],
+  "default": "Preis",
+  "placeholder": ""
+},{
+  "name": "type",
+  "displayname": "Spritsorte",
+  "inputType": ["e5", "e10", "Diesel", "alle"],
+  "default": "e10",
+  "placeholder": ""
+},{
+  "name": "system_location",
+  "displayname": "Spiegel Standort",
+  "inputType": "checkbox",
+  "default": true,
+  "placeholder": ""
+},{
+  "name": "lat",
+  "displayname": "Alternative Koordinate (lat)",
+  "inputType": "text",
+  "default": "",
+  "placeholder": "falls abweichend"
+},{
+  "name": "lon",
+  "displayname": "Alternative Koordinate (lon)",
+  "inputType": "text",
+  "default": "",
+  "placeholder": "falls abweichend"
+},{
+  "name": "radius",
+  "displayname": "Suchradius in km (max. 25)",
+  "inputType": "number",
+  "default": 25,
+  "placeholder": ""
+}]
+
