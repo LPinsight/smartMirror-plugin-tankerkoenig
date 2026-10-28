@@ -1,5 +1,42 @@
-.weather {
-  font-family: sans-serif;
-  color: white;
+img {
+  height: 4rem;
+}
+
+section h5.sec_titel {
   text-align: center;
+  text-decoration: underline;
+  padding-bottom: 0.5rem;
+}
+
+section article {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+section article h5 {
+  padding-right: 1rem;
+}
+
+section ul li {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+section ul li:last-child {
+  padding-bottom: 0rem;
+}
+
+h5.preis {
+  font-weight: bold;
+}
+
+h6 {
+  text-align: center;
+  padding-top: 1.5rem;
 }

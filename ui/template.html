@@ -1,3 +1,30 @@
-<div class="template-plugin">
-  <h2>Template-Plugin</h2>
-</div>
+<h4 class="headline">Spritpreise für <span data-fuel-type></span></h4>
+
+<br>
+
+<section>
+  <h5 class="sec_titel">Bevorzugte Tankstelle</h5>
+
+  <article data-preferred-station>
+    <h5 class="preis"><span data-price></span>€</h5>
+    <img data-status></img>
+  </article>
+</section>
+
+<br>
+
+<section>
+  <h5 class="sec_titel">Tankstellen im Umkreis</h5>
+
+  <ul data-nearby-stations></ul>
+</section>
+
+<h6>zuletzt aktualisiert: <span data-last-refresh></span></h1>
+
+<template id="station-template">
+  <li>
+    <h5 class="preis"><span data-price></span>€</h5>
+    <p><span data-city></span>-<span data-name></span></p>
+    <img data-status></img>
+  </li>
+</template>
