@@ -5,6 +5,12 @@
   "default": "",
   "placeholder": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 },{
+  "name": "uuid_tankstelle",
+  "displayname": "UUID der bevorzugten Tankstelle",
+  "inputType": "text",
+  "default": "",
+  "placeholder": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+},{
   "name": "sort",
   "displayname": "Sortierung",
   "inputType": ["Preis", "Entfernung"],
@@ -13,7 +19,7 @@
 },{
   "name": "type",
   "displayname": "Spritsorte",
-  "inputType": ["e5", "e10", "Diesel", "alle"],
+  "inputType": ["e5", "e10", "Diesel"],
   "default": "e10",
   "placeholder": ""
 },{
@@ -39,6 +45,18 @@
   "displayname": "Suchradius in km (max. 25)",
   "inputType": "number",
   "default": 25,
+  "placeholder": ""
+},{
+  "name": "max_tankstellen",
+  "displayname": "maximale Tankstellen",
+  "inputType": "number",
+  "default": 5,
+  "placeholder": ""
+},{
+  "name": "updateInterval",
+  "displayname": "Aktualisierungsinterval in Minuten",
+  "inputType": "number",
+  "default": 20,
   "placeholder": ""
 }]
 
