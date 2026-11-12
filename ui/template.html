@@ -2,7 +2,7 @@
 
 <br>
 
-<section>
+<section id="bevorzugt">
   <h5 class="sec_titel">Bevorzugte Tankstelle</h5>
 
   <article data-preferred-station>
@@ -13,7 +13,7 @@
 
 <br>
 
-<section>
+<section id="distanz">
   <h5 class="sec_titel">Tankstellen im Umkreis</h5>
 
   <ul data-nearby-stations></ul>
@@ -24,7 +24,9 @@
 <template id="station-template">
   <li>
     <h5 class="preis"><span data-price></span>€</h5>
-    <p><span data-city></span>-<span data-name></span></p>
+    <p><span data-distanz></span>km</p>
+
+    <p class="brandCity"><span data-name></span><span data-city></span></p>
     <img data-status></img>
   </li>
 </template>

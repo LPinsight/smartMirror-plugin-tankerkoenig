@@ -6,6 +6,7 @@ export async function getListData (root, config, baseURL) {
   const lon = config["lon"]
   const radius = config["radius"]
   const sort = config["sort"] === "Preis" ? "price" : "dist"
+  const filterOpen = config["only_opend"]
   const type = {
     "Diesel": "diesel"
   }[config["type"]] ?? config["type"]
@@ -20,8 +21,16 @@ export async function getListData (root, config, baseURL) {
     return
   }
 
-  const stations = result.stations
-  // console.log(stations);
+  let stations = result.stations.filter(station =>
+    typeof station.price === "number" && station.price > 0
+  )
+  
+  if(filterOpen) {
+    stations = stations.filter(station =>
+      station.isOpen == true
+    )
+  }
+
 
   const container = root.querySelector("[data-nearby-stations]");
   const template = root.querySelector("#station-template");
@@ -34,8 +43,14 @@ export async function getListData (root, config, baseURL) {
     
     element.querySelector("[data-price]").textContent = stations[i].price
     element.querySelector("[data-city]").textContent = stations[i].place
-    element.querySelector("[data-name]").textContent = stations[i].brand
+    element.querySelector("[data-distanz]").textContent = stations[i].dist
     element.querySelector("[data-status]").src = `${baseURL}/assets/${imgName}.png`
+
+    if(stations[i].brand != "") {
+      element.querySelector("[data-name]").textContent = stations[i].brand
+    } else {
+      element.querySelector("[data-name]").textContent = stations[i].name
+    }
 
     if (stations[i].id === uuid) {
       root.querySelector("[data-price]").textContent = stations[i].price

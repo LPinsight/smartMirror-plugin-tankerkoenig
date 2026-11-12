@@ -5,6 +5,11 @@ export async function getBevorzugtData (root, config, baseURL) {
     "Diesel": "diesel"
   }[config["type"]] ?? config["type"]
 
+  if(uuid === "") {
+    root.querySelector("#bevorzugt").style.display = "none"
+    return
+  }
+
   const url = `https://creativecommons.tankerkoenig.de/json/prices.php?ids=${uuid}&apikey=${key}`
 
   const response = await fetch(url)

@@ -28,6 +28,17 @@ section ul li {
   padding-bottom: 1rem;
 }
 
+section ul li p.brandCity {
+  text-align: center;
+}
+
+section ul li p.brandCity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 section ul li:last-child {
   padding-bottom: 0rem;
 }

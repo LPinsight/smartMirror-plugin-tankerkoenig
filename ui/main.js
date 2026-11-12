@@ -2,6 +2,15 @@ class tankerkoenigPlugin extends HTMLElement {
   async connectedCallback() {
     const config = this.config || {};
 
+    const lat = config["lat"]?.trim();
+    const lon = config["lon"]?.trim();
+    const key = config["tankerkoenig_api_key"];
+
+    if (lat === "" || lon === "" || !Number.isFinite(Number(lat)) || !Number.isFinite(Number(lon)) || key === "") {
+      this.innerHTML = "<p class=\"configuration-message\">Bitte konfiguriere zuerst das Widgets.</p>";
+      return
+    }
+
     const fuelTypeName = {
       "e5": "Super",
       "e10": "Super E10",

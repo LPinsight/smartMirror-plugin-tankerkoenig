@@ -58,5 +58,11 @@
   "inputType": "number",
   "default": 20,
   "placeholder": ""
+},{
+  "name": "only_opend",
+  "displayname": "Nur geöffnete Tankstellen anzeigen",
+  "inputType": "checkbox",
+  "default": false,
+  "placeholder": ""
 }]
 
