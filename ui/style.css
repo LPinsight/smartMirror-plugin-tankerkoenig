@@ -1,8 +1,8 @@
 div#settings {
-  padding-top: 0.5rem;
+  padding-top: 0.2rem;
   display: flex;
   justify-content: space-between;
-}
+} 
 
 div#settings section {
   display: flex;
@@ -23,7 +23,6 @@ article ul li {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px dotted #fff;
-  padding: 0.5rem 0;
 }
 
 article ul li:last-child {
