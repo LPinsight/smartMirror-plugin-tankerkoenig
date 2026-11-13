@@ -5,6 +5,9 @@ class tankerkoenigPlugin extends HTMLElement {
     const lat = config["lat"]?.trim();
     const lon = config["lon"]?.trim();
     const key = config["tankerkoenig_api_key"];
+    const sort = config["sort"]
+    const radius = config["radius"]
+    const geöffnet = config["only_opend"] === true ? "Ja" : "Nein"
 
     if (lat === "" || lon === "" || !Number.isFinite(Number(lat)) || !Number.isFinite(Number(lon)) || key === "") {
       this.innerHTML = "<p class=\"configuration-message\">Bitte konfiguriere zuerst das Widgets.</p>";
@@ -33,15 +36,16 @@ class tankerkoenigPlugin extends HTMLElement {
     this.innerHTML += html; // HTML in Shadow DOM oder direkt ins Element
 
     this.querySelector("[data-fuel-type]").textContent = fuelTypeName
+    this.querySelector("[data-sort-type]").textContent = sort
+    this.querySelector("[data-radius-type]").textContent = radius
+    this.querySelector("[data-open-type]").textContent = geöffnet
 
     // 3. Logik
     
     // Module laden
     const umkreisModule = await import(`${baseUrl}/logic/umkreis.js`);
-    const bevorzugtModule = await import(`${baseUrl}/logic/bevorzugt.js`);
 
     this.umkreis = umkreisModule
-    this.bevorzugt = bevorzugtModule
 
     this.updateView()
 
@@ -50,7 +54,6 @@ class tankerkoenigPlugin extends HTMLElement {
 
   updateView() {
     this.umkreis.getListData(this, this.config, this.baseUrl)
-    this.bevorzugt.getBevorzugtData(this, this.config, this.baseUrl)
 
     const parts = new Intl.DateTimeFormat("de-DE", {
       hour: "2-digit",
@@ -61,7 +64,7 @@ class tankerkoenigPlugin extends HTMLElement {
 
     const hours = parts.find(part => part.type === "hour").value;
     const minutes = parts.find(part => part.type === "minute").value;
-    this.querySelector("[data-last-refresh]").textContent = `${hours}:${minutes}`    
+    this.querySelector("[data-last-refresh]").textContent = `${hours}:${minutes}`
   }
 }
 

@@ -31,32 +31,55 @@ export async function getListData (root, config, baseURL) {
     )
   }
 
+  const sichtbareStationen = stations.slice(0, maxAnzahl)
+  const liebling = stations.find(station => station.id === uuid)
+  
+  if (
+    liebling &&
+    !sichtbareStationen.some(station => station.id === uuid) &&
+    sichtbareStationen.length > 0
+  ) {
+    sichtbareStationen[sichtbareStationen.length - 1] = liebling
+  }
 
-  const container = root.querySelector("[data-nearby-stations]");
+  const preise = sichtbareStationen.map(station => station.price)
+  const günstigsterPreis = Math.min(...preise)
+  const teuersterPreis = Math.max(...preise)
+
+  const container = root.querySelector("[data-stations]");
   const template = root.querySelector("#station-template");
 
   container.innerHTML = ""; // alte Einträge löschen
 
-  for (let i = 0; i < maxAnzahl; i++) {
+  for (const station of sichtbareStationen) {
     const element = template.content.cloneNode(true)
-    const imgName = stations[i].isOpen? "open" : "closed"
     
-    element.querySelector("[data-price]").textContent = stations[i].price
-    element.querySelector("[data-city]").textContent = stations[i].place
-    element.querySelector("[data-distanz]").textContent = stations[i].dist
-    element.querySelector("[data-status]").src = `${baseURL}/assets/${imgName}.png`
+    element.querySelector("[data-price]").textContent = station.price
+    element.querySelector("[data-city]").textContent = station.place
+    element.querySelector("[data-distanz]").textContent = station.dist
 
-    if(stations[i].brand != "") {
-      element.querySelector("[data-name]").textContent = stations[i].brand
+    if(station.brand != "") {
+      element.querySelector("[data-name]").textContent = station.brand
     } else {
-      element.querySelector("[data-name]").textContent = stations[i].name
+      element.querySelector("[data-name]").textContent = station.name
     }
 
-    if (stations[i].id === uuid) {
-      root.querySelector("[data-price]").textContent = stations[i].price
+    if (station.id === uuid) {
+      element.querySelector("li").classList.add("bevorzugt")
+    }
+
+    if (station.price === günstigsterPreis) {
+      element.querySelector("li").classList.add("günstigste")
+    }
+
+    if (station.price === teuersterPreis) {
+      element.querySelector("li").classList.add("teuerste")
+    }
+
+    if (station.isOpen === false) {
+      element.querySelector("li").classList.add("close")
     }
 
     container.appendChild(element)
   }
-  
 }

@@ -1,32 +1,34 @@
-<h4 class="headline">Spritpreise für <span data-fuel-type></span></h4>
+<h4 class="headline">Spritpreise</h4>
+<div id="settings">
+  <section>
+    <h6 class="überschrift">Type</h6>
+    <h6 data-fuel-type></h6>
+  </section>
+  <section>
+    <h6 class="überschrift">Sortierung</h6>
+    <h6 data-sort-type></h6>
+  </section>
+  <section>
+    <h6 class="überschrift">Umkreis:</h6>
+    <h6><span data-radius-type></span>km</h6>
+  </section>
+  <section>
+    <h6 class="überschrift">Nur geöffnete</h6>
+    <h6 data-open-type></h6>
+  </section>
+</div>
 
-<br>
+<article>
+  <ul data-stations></ul>
+</article>
 
-<section id="bevorzugt">
-  <h5 class="sec_titel">Bevorzugte Tankstelle</h5>
-
-  <article data-preferred-station>
-    <h5 class="preis"><span data-price></span>€</h5>
-    <img data-status></img>
-  </article>
-</section>
-
-<br>
-
-<section id="distanz">
-  <h5 class="sec_titel">Tankstellen im Umkreis</h5>
-
-  <ul data-nearby-stations></ul>
-</section>
-
-<h6>zuletzt aktualisiert: <span data-last-refresh></span></h1>
+<h6 id="lastRefresh">zuletzt aktualisiert: <span data-last-refresh></span></h6>
 
 <template id="station-template">
   <li>
-    <h5 class="preis"><span data-price></span>€</h5>
-    <p><span data-distanz></span>km</p>
+    <p class="preis"><span data-price></span>€</p>
+    <p class="entfernung"><span data-distanz></span>km</p>
 
     <p class="brandCity"><span data-name></span><span data-city></span></p>
-    <img data-status></img>
   </li>
 </template>

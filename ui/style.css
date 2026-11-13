@@ -1,53 +1,78 @@
-img {
-  height: 4rem;
-}
-
-section h5.sec_titel {
-  text-align: center;
-  text-decoration: underline;
-  padding-bottom: 0.5rem;
-}
-
-section article {
+div#settings {
+  padding-top: 0.5rem;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-section article h5 {
-  padding-right: 1rem;
-}
-
-section ul li {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding-bottom: 1rem;
 }
 
-section ul li p.brandCity {
-  text-align: center;
-}
-
-section ul li p.brandCity {
+div#settings section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-section ul li:last-child {
-  padding-bottom: 0rem;
+div#settings section h6.überschrift {
+  text-decoration: underline;
 }
 
-h5.preis {
-  font-weight: bold;
+article {
+  padding-top: 0.5rem;
 }
 
-h6 {
+article ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dotted #fff;
+  padding: 0.5rem 0;
+}
+
+article ul li:last-child {
+  border-bottom: none;
+}
+
+article ul li.close {
+  color: #7f8c8d;
+  text-decoration-color: #7f8c8d;
+}
+
+article ul li.bevorzugt p{
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: silver;
+}
+
+article ul li.günstigste p.preis {
+  color: #2ecc71;
+  text-decoration-color: #2ecc71;
+}
+
+article ul li.teuerste p.preis {
+  color: #e74c3c;
+  text-decoration-color: #e74c3c;
+}
+
+article ul li p.preis,
+article ul li p.entfernung {
+  width: 7rem;
+}
+
+article ul li p.preis {
+  text-align: left;
+}
+
+article ul li p.entfernung  {
   text-align: center;
-  padding-top: 1.5rem;
+}
+
+article ul li p.brandCity {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  width: 20rem;
+}
+
+h6#lastRefresh {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: oblique;
 }
